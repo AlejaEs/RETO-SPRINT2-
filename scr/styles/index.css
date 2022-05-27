@@ -21,25 +21,44 @@ html {
 	scroll-behavior: smooth;
 }
 
-/*=============== THEME ===============*/
-
+.input {
+	height: 30px;
+	outline: none;
+}
 /*========== Variables Dark theme ==========*/
+body.dark-theme {
+	/* HSL color mode */
+	--main-color: hsl(170, 86%, 78%);
+	--sub-color: hsl(180, 2%, 23%);
+}
+/*========== Button Dark/Light ==========*/
+.nav__btns {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.change-theme {
+	position: relative;
+	z-index: 3;
+	font-size: 1.5rem;
+	color: hsl(0, 0%, 100%);
+	margin-right: 1rem;
+	cursor: pointer;
+}
+.change-theme:hover {
+	color: hsl(167, 69%, 61%);
+}
 
 /*?HEADER*/
 .header {
-	display: flex;
-	flex-direction: column;
-	background-color: rgb(41, 22, 200);
 	background-image: radial-gradient(
 			224.24% 668.5% at 14.41% -14.14%,
 			rgba(0, 0, 0, 0.57) 44.5%,
 			rgba(255, 255, 255, 0) 67.11%
 		),
-		url(../images/header.png);
+		url(../img/header.png);
 	background-size: 100% 100%;
-	padding: 0.875rem 1rem;
-	/* height: 214px; */
-	color: var(--main-color);
+	padding: 0.625rem 1rem;
 }
 .header__title {
 	width: 100%;
@@ -47,55 +66,42 @@ html {
 	margin-top: 8px;
 	margin-left: 16px;
 	font-weight: 600;
-	font-size: 30px;
+	font-size: 1.875;
 	line-height: 150%;
-	color: var(--sub-color);
+	color: var(--main-color);
 	font-family: var(--title-header);
 }
+
 /*todo=========CONTAINER-FILTROS==================*/
 .filter__container {
+	width: 92%;
+	max-width: 60rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.625rem;
 	background-color: rgba(228, 228, 234, 0.8);
 	border-radius: 0.4rem;
-	width: 100%;
-	padding: 0.625rem;
 	font-family: var(--main-font);
+	font-size: 0.75rem;
+	margin: 0 auto;
+	margin-top: 0.3rem;
 }
-.filter__reservas {
-	display: grid;
-	grid-template-columns: 49% 49%;
-	grid-template-rows: auto;
-	grid-template-areas:
-		"countries countries"
-		"date-from date-to"
-		"prices sizes"
-		". clear";
-	gap: 0.312rem;
-	/* display: flex;
-	align-items: center;
-	flex-wrap: wrap; 
-	gap: 0.3rem;
-	margin: 0 auto;*/
-	font-family: var(--main-font);
-	font-weight: 400;
-	font-size: 10px;
-}
-.filter__reservas > * {
-	height: 1.8rem;
-	font-size: 0.8rem;
-}
+
 .filter__paises {
-	grid-area: countries;
+	width: 94%;
 	background: url(/scr/images/ubicacion.svg) no-repeat rgba(255, 255, 255, 0.75);
 	background-size: 1rem 1rem;
 	background-position-x: 0.312rem;
 	background-position-y: center;
-	width: 100%;
-	height: 30px;
-	padding: 5px;
-	font-size: 16px;
+	padding: 0.4rem;
 	font-weight: 400;
-	line-height: 24px;
 	padding-left: 8%;
+}
+.filter-input {
+	width: 46%;
+	gap: 10px;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
 	background: transparent;
@@ -108,12 +114,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	top: 0;
 	width: auto;
 }
-.filter__date {
-	grid-area: date-from;
-}
-.filter__dateTo {
-	grid-area: date-to;
-}
 .filter__date,
 .filter__dateTo {
 	background: url(/scr/images/signout.svg) no-repeat rgba(255, 255, 255, 0.8);
@@ -121,16 +121,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	background-position-x: 0.312rem;
 	background-position-y: center;
 	border: 1px solid gray;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
 	font: normal 400 16px 150% var(--main-font);
 	color: #000;
-	/* width: 132px; */
-	height: 30px;
-	padding-left: 15%;
-	gap: 10px;
+	padding-left: 12%;
 }
 .filter__prices {
 	background: url(/scr/images/usd-circle.svg) no-repeat
@@ -138,44 +131,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	background-size: 1rem 1rem;
 	background-position-x: 0.312rem;
 	background-position-y: center;
-	/* width: 132px; */
-	height: 30px;
-	padding: 5px;
-	font-size: 1rem;
 	font-weight: 400;
-	line-height: 24px;
-	padding-left: 15%;
+
+	padding-left: 12%;
 }
 .filter__sizes {
-	grid-area: sizes;
 	background: url(/scr/images/bed.svg) no-repeat rgba(255, 255, 255, 0.75);
 	background-size: 1rem 1rem;
 	background-position-x: 0.312rem;
 	background-position-y: center;
-	/* width: 132px; */
-	height: 30px;
-	padding: 5px;
-	font-size: 16px;
 	font-weight: 400;
-	line-height: 24px;
 	padding-left: 15%;
 }
 /*===========Button CLEAR===========*/
 .filter__clear {
-	grid-area: clear;
-	justify-self: flex-end;
-	align-self: flex-end;
+	width: 3.75rem;
+	height: 1.563rem;
 	background: rgba(51, 51, 51, 0.88);
 	border: 1px solid var(--sub-color);
-	border-radius: 6px;
+	border-radius: 0.6rem;
 	color: var(--main-color);
 	font-size: 1rem;
 	font-weight: 600;
-	/* margin-left: 208px;
-	margin-top: 5px;
+	margin-left: 74%;
+	/*margin-top: 5px;
 	padding: 9px 32px; */
-	width: 75px;
-	height: 25px;
 	cursor: pointer;
 }
 .Filter__Clear:active {
@@ -183,134 +163,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /*?==========MESSAGE CONTAINER==========*/
-.message__container {
+.message__title {
 	display: none;
 	color: var(--main-color);
 	font-family: var(--subtitle-header);
-}
-
-/*!============== HOTEL CARDS=============== */
-.main {
-	margin: 0;
-	padding: 0 1rem;
-	background-color: var(--sub-color);
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	overflow-y: scroll;
-}
-.flip-card {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin: 15px;
-	position: relative;
-	transform-style: preserve-3d;
-	perspective: 1000px;
-	/* max-width: 420px;
-	width: 90%; */
-}
-/* .flip-card:hover > .flip-card-back {
-	display: block;
-} */
-.flip-card-front,
-.flip-card-back {
-	width: 300px;
-	min-height: 200px;
-	height: auto;
-	border-radius: 20px;
-	background-color: #000000;
-	background-image: url(/scr/images/la-bamba-de-areco.jpg);
-	background-size: cover;
-	background-position: center;
-	backface-visibility: hidden;
-	transform-style: preserve-3d;
-	transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-.flip-card-front {
-	transform: rotateY(0deg);
-}
-
-.flip-card-back {
-	/* display: none; */
-	position: absolute;
-	text-align: left;
-	top: 0;
-	left: 0;
-	transform: rotateY(180deg);
-}
-.flip-card-front::after,
-.flip-card-back::after {
-	content: "";
-	width: 100%;
-	height: 100%;
-	background-color: #0a0a0a;
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0.6;
-	border-radius: 20px;
-}
-
-.flip-card-front .inner,
-.flip-card-back .inner {
-	width: 100%;
-	padding: 30px;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%) translateZ(60px) scale(0.94);
-	z-index: 3;
-}
-
-.inner h2,
-h3 {
-	margin-top: 0.5rem;
-	margin-bottom: 4px;
-	color: var(--main-color);
-	font-size: 1rem;
-	font-weight: 700;
-	font-family: var(--main-font);
-	line-height: 30px;
-	text-transform: capitalize;
-}
-
-.inner p {
-	color: var(--sub-color);
-	font-family: var(--main-font);
-	font-size: 14px;
-	line-height: 16px;
-}
-/* .inner .hotelCard__about {
-	margin-top: 15%;
-} */
-/*BUTTON BOOK IT!*/
-.inner .HotelCard__reserva,
-.inner .HotelCard__reserva-back {
-	margin-top: 15px;
-	font-size: 14px;
-	border-radius: 6px;
-	width: 64px;
-	height: 25px;
-	color: var(--sub-color);
-	border: 1px solid var(--sub-color);
-	background: rgba(51, 51, 51, 0.7);
-	font-weight: 600;
-}
-.inner .HotelCard__reserva-back {
-	float: right;
-	margin-top: -40px;
-}
-
-.inner .HotelCard__reserva-back:hover {
-	color: aquamarine;
-}
-/*?EFECTO ROTAR CARD*/
-.flip-card:hover .flip-card-front {
-	transform: rotateY(-180deg);
-}
-
-.flip-card:hover .flip-card-back {
-	transform: rotateY(0deg);
 }
 
 /*FOOTER*/
@@ -323,33 +179,8 @@ h3 {
 }
 
 /*todo MEDIA QUERIES*/
-@media screen and (min-width: 28.125rem) {
-	/*Hotel cards*/
-	.flip-card-front,
-	.flip-card-back {
-		width: 400px;
-	}
-	.inner .HotelCard__title {
-		font-size: 1.5rem;
-	}
-	.inner .HotelCard__reserva {
-		font-size: 1rem;
-		float: right;
-		width: 4.5rem;
-		margin-top: 0.5rem;
-	}
-	/*FACE-CARD BACK*/
-	.inner .hotelCard__about {
-		font-size: 1rem;
-		line-height: 1.2rem;
-	}
-	.inner .HotelCard__reserva-back {
-		font-size: 1rem;
-		width: 4.5rem;
-	}
-}
 
-@media screen and (min-width: 37.5rem) {
+@media screen and (min-width: 600px) {
 	.header {
 		background-size: 100% 125%;
 	}
@@ -358,120 +189,40 @@ h3 {
 		padding-bottom: 0.8rem;
 		font-size: 2.22rem;
 	}
-	.filter__reservas {
-		grid-template-columns: 32% 32% 32%;
-		grid-template-areas:
-			"countries date-from date-to"
-			"prices sizes clear";
-		column-gap: 0.7rem;
-		row-gap: 0.3rem;
-	}
-
-	/*Hotel cards*/
-	.flip-card-front,
-	.flip-card-back {
-		width: 450px;
-		min-height: 200px;
-	}
-	.inner h2,
-	h3 {
-		font-size: 1.4rem;
-	}
-	.inner .hotelCard__about {
-		font-size: 1rem;
-	}
 }
 
-@media screen and (min-width: 46.875rem) {
-	.message__container {
-		display: block;
-		padding-top: 1rem;
-		color: var(--main-color);
-	}
-	.message__title {
-		font-family: var(--subtitle-header);
-		font-weight: 600;
-		font-size: 1.8rem;
-	}
-	.header__title {
-		margin-bottom: 0.8rem;
-		font-size: 2.232rem;
-	}
-	.main {
-		padding: 0 1rem;
-	}
-	.flip-card {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		column-gap: 4rem;
-		width: calc(45% - 0.4rem);
-	}
-	.flip-card-front,
-	.flip-card-back {
-		width: 305px;
-		height: 200px;
-		margin-top: 1.2rem;
-	}
-	.inner .hotelCard__about {
-		font-size: 0.85rem;
-	}
-}
-
-@media screen and (min-width: 52.5rem) {
-	.flip-card {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		column-gap: 1rem;
-		width: calc(45% - 2rem);
-	}
-	.flip-card-front,
-	.flip-card-back {
-		width: 320px;
-		height: 200px;
-		justify-content: center;
-	}
-	.inner .hotelCard__about {
-		font-size: 0.9rem;
-	}
-}
-
-@media screen and (min-width: 64rem) {
+/**PANTALLAS GRANDES*/
+@media screen and (min-width: 1024px) {
 	.header {
-		padding: 3rem 3rem 1.75rem;
-		background-size: 100% 150%;
+		background-size: 100% 140%;
+		padding: 4rem 4.5rem;
 	}
 	.header__title {
 		font-size: 4.5rem;
 		margin-bottom: 1.2rem;
 	}
 	.filter__container {
-		display: flex;
+		flex-wrap: nowrap;
+		max-width: none;
+		margin-top: 4.7rem;
+		padding: 0rem;
 		background-color: transparent;
-		justify-content: center;
-		margin-top: 1.5rem;
 	}
-	.filter__reservas {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-	.filter__reservas > * {
-		height: 2.4rem;
-		max-width: 15rem;
-		font-size: 0.9rem;
-		flex: 1;
+	.filter__paises {
+		width: 20.8rem;
 	}
 	.filter__date,
 	.filter__dateTo,
 	.filter__paises,
 	.filter__prices,
 	.filter__sizes {
-		width: 10rem;
-		background-size: 1.1rem 1.1rem;
 		font-size: 14px;
+		width: 20rem;
+		padding-left: 5%;
+		background-size: 1.2rem 1.2rem;
 	}
 	.filter__clear {
+		margin-left: 1.5rem;
 		padding: 0.5rem;
 		height: 2.3rem;
 		align-items: center;
@@ -479,30 +230,11 @@ h3 {
 		border-radius: 0.5rem;
 		font-size: 1.1rem;
 	}
-	.main {
-		padding: 0 1.5rem;
-	}
-	.flip-card {
-		column-gap: 0.8rem;
-		width: calc(47% - 0.5rem);
-	}
-	.flip-card-front,
-	.flip-card-back {
-		height: 370px;
-		width: 450px;
-	}
-	.inner .HotelCard__title {
-		font-size: 2rem;
-	}
-	.inner .hotelCard__rooms-prices {
-		font-size: 1rem;
-	}
-	.inner .hotelCard__about {
-		font-size: 1.2rem;
-	}
-	.inner .HotelCard__reserva,
-	.inner .HotelCard__reserva-back {
-		width: 25%;
-		font-size: 1.1rem;
+
+	.message__title {
+		display: block;
+		font-family: var(--subtitle-header);
+		font-size: 2.8rem;
+		margin-top: 2.6rem;
 	}
 }

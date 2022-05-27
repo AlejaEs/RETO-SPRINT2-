@@ -8,6 +8,9 @@
 
 		<!-- ESTILOS PROPIOS -->
 		<link rel="stylesheet" href="./scr/styles/index.css" />
+		<link rel="stylesheet" href="./scr/styles/card.css" />
+
+		<!-- TIPOGRAFÍA -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -26,176 +29,75 @@
 			href="https://fonts.googleapis.com/css2?family=Courgette&display=swap"
 			rel="stylesheet"
 		/>
+		<!-- ===== BOX ICONS ===== -->
+		<link
+			rel="stylesheet"
+			href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+		/>
 	</head>
 	<body>
 		<header class="header">
+			<!-- THEME CHANGE BUTTON -->
+			<div class="nav__btns">
+				<i class="uil uil-moon change-theme" id="theme-button"></i>
+			</div>
 			<h1 class="header__title">Book it!</h1>
 			<div class="filter__container">
-				<div class="filter__reservas">
-					<select
-						name="filter-paises"
-						id="filter-paises"
-						class="filter__paises"
-					>
-						<option value="all">All countries</option>
-						<option value="pais1">Argentina</option>
-						<option value="pais2">Brasil</option>
-						<option value="pais3">Chile</option>
-						<option value="pais4">Uruguay</option>
-					</select>
-					<input
-						type="date"
-						name="date-from"
-						id="date-from"
-						class="filter__date"
-					/>
-					<input
-						type="date"
-						name="date-to"
-						class="filter__dateTo"
-						id="date-to"
-					/>
-					<select
-						name="filter-prices"
-						id="filter-prices"
-						class="filter__prices"
-					>
-						<option value="all">All prices</option>
-						<option value="price1">$</option>
-						<option value="price2">$$</option>
-						<option value="price3">$$$</option>
-						<option value="price4">$$$$</option>
-					</select>
-					<select
-						name="filter-sizes"
-						id="filter-sizes"
-						class="filter__sizes filter-icon"
-					>
-						<option value="all">All sizes</option>
-						<option value="size1">Small</option>
-						<option value="size2">Medium</option>
-						<option value="size3">Large</option>
-					</select>
-					<button class="filter__clear">Clear</button>
-				</div>
+				<select
+					name="filter-paises"
+					id="filter-paises"
+					class="filter__paises input"
+				>
+					<option value="all" selected>All countries</option>
+					<option value="argentina">Argentina</option>
+					<option value="brasil">Brasil</option>
+					<option value="chile">Chile</option>
+					<option value="uruguay">Uruguay</option>
+				</select>
+				<input
+					type="date"
+					name="date-from"
+					id="chekinInput"
+					class="filter__date filter-input input"
+				/>
+				<input
+					type="date"
+					name="date-to"
+					class="filter__dateTo filter-input input"
+					id="chekoutInput"
+				/>
+				<select
+					name="filter-prices"
+					id="filter-prices"
+					class="filter__prices filter-input input"
+				>
+					<option value="all" selected>All prices</option>
+					<option value="$">$</option>
+					<option value="$$">$$</option>
+					<option value="$$$">$$$</option>
+					<option value="$$$$">$$$$</option>
+				</select>
+				<select
+					name="filter-sizes"
+					id="filter-sizes"
+					class="filter__sizes filter-input input"
+				>
+					<option value="all" selected>All sizes</option>
+					<option value="small">Small</option>
+					<option value="medium">Medium</option>
+					<option value="large">Large</option>
+				</select>
+				<button class="filter__clear">Clear</button>
 			</div>
-			<div class="message__container">
-				<p class="message__title">We have found for you...</p>
-			</div>
+			<h2 class="message__title">We have found for you...</h2>
 		</header>
 		<main class="main">
 			<!-- FACE-FRONT CARD -->
-			<section id="HotelsContainer" class="flip-card">
-				<div class="flip-card-front">
-					<div class="inner">
-						<h2 class="HotelCard__title">La Bamba de Areco</h2>
-						<section class="HotelCard__info" id="HotelCard__info">
-							<div class="hotelCard__country" id="hotelCard__country">
-								<h3 class="hotelCard__countryName">Argentina</h3>
-								<p class="hotelCard__rooms-prices">11 Habitaciones - $$$</p>
-							</div>
-						</section>
-						<button class="HotelCard__reserva" id="HotelCard__reserva">
-							Book it!
-						</button>
-					</div>
-				</div>
-				<!-- FACE-BACK CARD -->
-				<div class="flip-card-back">
-					<div class="inner">
-						<!-- <h2 class="HotelCard__title">La Bamba de Areco</h2> -->
-						<p class="hotelCard__about">
-							La Bamba de Areco está ubicada en San Antonio de Areco, en el
-							corazón de la pampa. Es una de las estancias más antiguas de la
-							Argentina, recientemente restaurada para ofrecer a sus huéspedes
-							todo el confort y esplendor colonial.
-						</p>
-						<div class="hotelCard__country" id="hotelCard__country">
-							<h3 class="hotelCard__countryName">Argentina</h3>
-							<p class="hotelCard__rooms-prices">11 Habitaciones - $$$</p>
-						</div>
-						<button class="HotelCard__reserva-back" id="HotelCard__reserva">
-							Book it!
-						</button>
-					</div>
-				</div>
-			</section>
-			<!-- FACE-FRONT CARD -->
-			<section id="HotelsContainer" class="flip-card">
-				<div class="flip-card-front">
-					<div class="inner">
-						<h2 class="HotelCard__title">La Bamba de Areco</h2>
-						<section class="HotelCard__info" id="HotelCard__info">
-							<div class="hotelCard__country" id="hotelCard__country">
-								<h3 class="hotelCard__countryName">Argentina</h3>
-								<p class="hotelCard__rooms-prices">11 Habitaciones - $$$</p>
-							</div>
-						</section>
-						<button class="HotelCard__reserva" id="HotelCard__reserva">
-							Book it!
-						</button>
-					</div>
-				</div>
-				<!-- FACE-BACK CARD -->
-				<div class="flip-card-back">
-					<div class="inner">
-						<!-- <h2 class="HotelCard__title">La Bamba de Areco</h2> -->
-						<p class="hotelCard__about">
-							La Bamba de Areco está ubicada en San Antonio de Areco, en el
-							corazón de la pampa. Es una de las estancias más antiguas de la
-							Argentina, recientemente restaurada para ofrecer a sus huéspedes
-							todo el confort y esplendor colonial.
-						</p>
-						<div class="hotelCard__country" id="hotelCard__country">
-							<h3 class="hotelCard__countryName">Argentina</h3>
-							<p class="hotelCard__rooms-prices">11 Habitaciones - $$$</p>
-						</div>
-						<button class="HotelCard__reserva-back" id="HotelCard__reserva">
-							Book it!
-						</button>
-					</div>
-				</div>
-			</section>
-			<!-- FACE-FRONT CARD -->
-			<section id="HotelsContainer" class="flip-card">
-				<div class="flip-card-front">
-					<div class="inner">
-						<h2 class="HotelCard__title">La Bamba de Areco</h2>
-						<section class="HotelCard__info" id="HotelCard__info">
-							<div class="hotelCard__country" id="hotelCard__country">
-								<h3 class="hotelCard__countryName">Argentina</h3>
-								<p class="hotelCard__rooms-prices">11 Habitaciones - $$$</p>
-							</div>
-						</section>
-						<button class="HotelCard__reserva" id="HotelCard__reserva">
-							Book it!
-						</button>
-					</div>
-				</div>
-				<!-- FACE-BACK CARD -->
-				<div class="flip-card-back">
-					<div class="inner">
-						<!-- <h2 class="HotelCard__title">La Bamba de Areco</h2> -->
-						<p class="hotelCard__about">
-							La Bamba de Areco está ubicada en San Antonio de Areco, en el
-							corazón de la pampa. Es una de las estancias más antiguas de la
-							Argentina, recientemente restaurada para ofrecer a sus huéspedes
-							todo el confort y esplendor colonial.
-						</p>
-						<div class="hotelCard__country" id="hotelCard__country">
-							<h3 class="hotelCard__countryName">Argentina</h3>
-							<p class="hotelCard__rooms-prices">11 Habitaciones - $$$</p>
-						</div>
-						<button class="HotelCard__reserva-back" id="HotelCard__reserva">
-							Book it!
-						</button>
-					</div>
-				</div>
-			</section>
+			<section id="HotelsContainer" class="flip-card"></section>
 		</main>
 		<footer class="footer" id="footer">
 			Hecho con 💗 por AlejandraE &copy;2022. Todos los derechos reservados
 		</footer>
-		<script src="/scr/index.js"></script>
+		<script type="module" src="./scr/index.js"></script>
 	</body>
 </html>

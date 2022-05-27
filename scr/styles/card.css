@@ -1,0 +1,238 @@
+/*!============== HOTEL CARDS=============== */
+.main {
+	margin: 0;
+	padding: 0 1rem;
+	background-color: var(--sub-color);
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	overflow-y: scroll;
+}
+.flip-card {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 14px;
+	position: relative;
+	transform-style: preserve-3d;
+	perspective: 1000px;
+	/* max-width: 420px;
+  width: 90%; */
+}
+.flip-card-front,
+.flip-card-back {
+	width: 18.7rem;
+	height: 14rem;
+	padding: 1rem 0.5rem 0.5rem 0.4rem;
+	border-radius: 1rem;
+	background-color: #000000;
+	background-image: url();
+	background-size: cover;
+	background-position: center;
+	backface-visibility: hidden;
+	margin-bottom: 1.5rem;
+	transform-style: preserve-3d;
+	transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flip-card-front {
+	transform: rotateY(0deg);
+}
+
+.flip-card-back {
+	position: absolute;
+	text-align: left;
+	top: 0;
+	left: 0;
+	transform: rotateY(180deg);
+}
+.flip-card-front::after,
+.flip-card-back::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-color: #0a0a0a;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.6;
+	border-radius: 20px;
+}
+.flip-card-front .inner,
+.flip-card-back .inner {
+	width: 100%;
+	padding: 1.9rem;
+	position: absolute;
+	top: 40%;
+	transform: translateY(-50%) translateZ(60px) scale(0.94);
+	z-index: 3;
+}
+
+/* .inner .HotelCard__info {
+	width: 12rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	position: relative;
+	margin: 0.65rem;
+	font-size: 1rem;
+	font-weight: 400;
+	font-family: var(--main-font);
+	color: var(--main-color);
+	z-index: 3;
+}*/
+.inner .HotelCard__info-back {
+	width: 12rem;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	font-size: 1rem;
+	font-weight: 400;
+	font-family: var(--main-font);
+	color: var(--main-color);
+	z-index: 3;
+}
+.inner h2,
+h3 {
+	position: relative;
+	margin-top: 0.3rem;
+	padding: 0.3rem;
+	color: var(--main-color);
+	font-size: 1.1rem;
+	font-weight: 700;
+	font-family: var(--main-font);
+	line-height: 30px;
+	text-transform: capitalize;
+	z-index: 3;
+}
+
+.inner p {
+	position: relative;
+	color: var(--main-color);
+	font-family: var(--main-font);
+	font-size: 13.1px;
+	line-height: 1rem;
+	padding: 0.3rem;
+	z-index: 3;
+}
+
+.inner .hotelCard__rooms-prices span {
+	margin: 1rem;
+}
+
+/*BUTTON BOOK IT!*/
+.inner .HotelCard__reserva,
+.inner .HotelCard__reserva-back {
+	width: 4rem;
+	height: 2rem;
+	position: relative;
+	float: right;
+	margin-top: 13px;
+	margin-left: 72%;
+	font-size: 14px;
+	border-radius: 6px;
+	color: var(--main-color);
+	border: 1px solid var(--main-color);
+	background: rgba(51, 51, 51, 0.7);
+	font-weight: 600;
+	z-index: 3;
+}
+.inner .HotelCard__reserva-back {
+	float: right;
+	margin-top: -38px;
+}
+
+.inner .HotelCard__reserva-back:hover {
+	color: aquamarine;
+}
+/*?EFECTO ROTAR CARD*/
+/* .flip-card:hover .flip-card-front {
+  transform: rotateY(-180deg);
+} */
+
+.rotationFront .flip-card-front {
+	transform: rotateY(-180deg);
+}
+.rotationBack .flip-card-back {
+	transform: rotateY(0deg);
+}
+
+/* .flip-card:hover .flip-card-back {
+  transform: rotateY(0deg);
+} */
+
+/*todo MEDIA QUERIES*/
+@media screen and (min-width: 600px) {
+	.flip-card {
+		width: 100%;
+		gap: 1.5rem;
+	}
+	.flip-card-front,
+	.flip-card-back {
+		height: 260px;
+		width: 300px;
+		margin-bottom: 0.5rem;
+	}
+	.inner .HotelCard__title {
+		font-size: 1.5rem;
+	}
+	.inner .hotelCard__countryName {
+		font-size: 1.2rem;
+		padding: 0.5rem;
+	}
+	.inner .hotelCard__rooms-prices {
+		font-size: 1.1rem;
+		padding: 0.5rem;
+	}
+	.inner .hotelCard__about {
+		font-size: 0.92rem;
+		padding: 0.5rem;
+	}
+	.inner .HotelCard__reserva,
+	.inner .HotelCard__reserva-back {
+		width: 25%;
+		font-size: 1.1rem;
+	}
+}
+
+/**PANTALLAS GRANDES*/
+@media screen and (min-width: 1024px) {
+	main {
+		overflow-y: hidden;
+	}
+	.flip-card {
+		column-gap: 2.1rem;
+		width: 100%;
+	}
+	.flip-card-front,
+	.flip-card-back {
+		height: 300px;
+		width: 300px;
+		margin-bottom: 2rem;
+	}
+	.inner .HotelCard__title {
+		font-size: 1.8rem;
+		padding: 0.5rem;
+	}
+	.inner .hotelCard__countryName {
+		font-size: 1.2rem;
+		padding: 0.5rem;
+	}
+	.inner .hotelCard__rooms-prices {
+		font-size: 1rem;
+		padding: 0.5rem;
+	}
+	.inner .hotelCard__about {
+		font-size: 1rem;
+		padding: 0.5rem;
+	}
+	.inner .HotelCard__reserva,
+	.inner .HotelCard__reserva-back {
+		width: 25%;
+		font-size: 1.1rem;
+	}
+}
+
+.flip-card-container {
+	position: relative;
+}
