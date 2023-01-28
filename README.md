@@ -1,5 +1,5 @@
-# RETO-SPRINT2-SEMILLERO-IT
-
+#BOOTCAMP SEMILLERO-IT
+# RETO-SPRINT2-
 <h2>¡¡Hola a todos!!👋</h2>
 Este es un prototipo de una página de reservas de Hoteles💻<br><br>
 <h3>Modo Ligth</h3>
